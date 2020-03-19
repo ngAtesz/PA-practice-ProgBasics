@@ -1,36 +1,32 @@
-def create_numlist():
-    count = 0
+def create_numlist(limit):
     numlist = []
-    # what is 7?
-    for number in range(7):
-        count += 1
-        numlist.append(count)
+    for number in range(1, limit+1):
+        numlist.append(number)
     return numlist
 
 
-def display_content_of_list(numbers, length):
-    print('Our list is ' + str(length) + ' long.')
+def display_content_of_list(numbers):
+    print('Our list is ' + str(len(numbers)) + ' long.')
     print('It has the following items: ')
     for number in numbers:
         print(number)
 
 
-def checking_divisiblity(numbers, length):
+def count_divisibles_by_two(numbers):
     divisible_by_2 = 0
-    index = 0
-    # There is a typo in the name of iteration variable :)
-    for divisibe in range(length):
-        if numbers[index]//2 <= 2:
+    for number in numbers:
+        if number // 2 <= 2:
             divisible_by_2 += 1
-        index += 1
-    print('From the', str(length), 'items, there is ' + str(divisible_by_2) + ' items which are dividible by 2 maximum 2 times')
+    
+    return divisible_by_2
 
 
 def main():
-    numlist = create_numlist()
-    length = len(numlist)
-    display_content_of_list(numlist, length)
-    checking_divisiblity(numlist, length)
+    count = 7
+    numlist = create_numlist(count)
+    display_content_of_list(numlist)
+    divisible_count = count_divisibles_by_two(numlist)
+    print('From the', str(len(numlist)), 'items, there is ' + str(divisible_count) + ' items which are dividible by 2 maximum 2 times')
 
 
 if __name__ == "__main__":
